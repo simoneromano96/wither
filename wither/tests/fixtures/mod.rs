@@ -1,4 +1,4 @@
-#![cfg(not(feature="sync"))]
+#![cfg(not(feature = "sync"))]
 
 use std::env;
 
@@ -104,8 +104,8 @@ impl Fixture {
     // /// Remove all documents & indexes from the collections of the data models used by this harness.
     // pub fn with_empty_collections(self) -> Self {
     //     DB.clone().collection(User::COLLECTION_NAME).drop(None).expect("failed to drop collection");
-    //     DB.clone().collection(UserModelBadMigrations::COLLECTION_NAME).drop(None).expect("failed to drop collection");
-    //     self
+    //     DB.clone().collection(UserModelBadMigrations::COLLECTION_NAME).drop(None).expect("failed to
+    // drop collection");     self
     // }
 
     /// Drop the database which is used by this harness.

@@ -376,16 +376,17 @@ async fn model_delete_should_delete_model_instance() {
 //         .await.expect("Expected to successfully open indices cursor post-test.")
 //         .filter_map(|doc_res| doc_res.ok())
 //         .collect();
-//     output_indices.sort_by_key(|doc| doc.get_str("name").await.unwrap().to_string()); // The name key will always exist and always be a string.
-//     let output_indices_len = output_indices.len();
+//     output_indices.sort_by_key(|doc| doc.get_str("name").await.unwrap().to_string()); // The name
+// key will always exist and always be a string.     let output_indices_len = output_indices.len();
 //     let idx1 = output_indices[0].clone();
 //     let idx2 = output_indices[1].clone();
 
 //     assert!(output_indices_len > initial_indices_len);
 //     assert_eq!(output_indices_len, 2);
-//     assert_eq!(&idx1, &doc!{"v": idx1.get_i32("v").await.unwrap(), "key": doc!{"_id": 1}, "name": "_id_", "ns": "witherTestDB.users"});
-//     assert_eq!(&idx2, &doc!{"v": idx2.get_i32("v").await.unwrap(), "unique": true, "key": doc!{"email": 1}, "name": "unique-email", "ns": "witherTestDB.users", "background": true});
-// }
+//     assert_eq!(&idx1, &doc!{"v": idx1.get_i32("v").await.unwrap(), "key": doc!{"_id": 1}, "name":
+// "_id_", "ns": "witherTestDB.users"});     assert_eq!(&idx2, &doc!{"v":
+// idx2.get_i32("v").await.unwrap(), "unique": true, "key": doc!{"email": 1}, "name":
+// "unique-email", "ns": "witherTestDB.users", "background": true}); }
 
 // #[tokio::test]
 //
@@ -405,8 +406,8 @@ async fn model_delete_should_delete_model_instance() {
 //         .await.expect("Expected to successfully open indices cursor post-test.")
 //         .filter_map(|doc_res| doc_res.ok())
 //         .collect();
-//     output_indices.sort_by_key(|doc| doc.get_str("name").await.unwrap().to_string()); // The name key will always exist and always be a string.
-//     let output_indices_len = output_indices.len();
+//     output_indices.sort_by_key(|doc| doc.get_str("name").await.unwrap().to_string()); // The name
+// key will always exist and always be a string.     let output_indices_len = output_indices.len();
 //     let idx1 = output_indices[0].clone();
 //     let idx2 = output_indices[1].clone();
 //     let idx3 = output_indices[2].clone();
@@ -415,8 +416,8 @@ async fn model_delete_should_delete_model_instance() {
 
 //     assert!(output_indices_len > initial_indices_len);
 //     assert_eq!(output_indices_len, 5);
-//     assert_eq!(&idx1, &doc!{"v": idx1.get_i32("v").await.unwrap(), "key": doc!{"_id": 1}, "name": "_id_", "ns": "witherTestDB.derivations"});
-//     assert_eq!(&idx2, &doc!{
+//     assert_eq!(&idx1, &doc!{"v": idx1.get_i32("v").await.unwrap(), "key": doc!{"_id": 1}, "name":
+// "_id_", "ns": "witherTestDB.derivations"});     assert_eq!(&idx2, &doc!{
 //         "v": idx2.get_i32("v").await.unwrap(),
 //         "unique": true,
 //         "key": doc!{"field0": 1},
@@ -470,22 +471,23 @@ async fn model_delete_should_delete_model_instance() {
 //         .await.expect("Expected to successfully open indices cursor post-test.")
 //         .filter_map(|doc_res| doc_res.ok())
 //         .collect();
-//     output_indices.sort_by_key(|doc| doc.get_str("name").await.unwrap().to_string()); // The name key will always exist and always be a string.
-//     let output_indices_len = output_indices.len();
+//     output_indices.sort_by_key(|doc| doc.get_str("name").await.unwrap().to_string()); // The name
+// key will always exist and always be a string.     let output_indices_len = output_indices.len();
 //     let idx1 = output_indices[0].clone();
 //     let idx2 = output_indices[1].clone();
 
 //     assert!(output_indices_len > initial_indices_len);
 //     assert_eq!(output_indices_len, 2);
-//     assert_eq!(&idx1, &doc!{"v": idx1.get_i32("v").await.unwrap(), "key": doc!{"_id": 1}, "name": "_id_", "ns": "witherTestDB.derived_2d_models"});
-//     // NOTE WELL: doc comparison was failing for some reason. Not sure why. Doing manual asserts now.
-//     assert_eq!(idx2.get("key").await.unwrap().as_document().await.unwrap(), &doc!{"field_2d_a": "2d", "field_2d_filter": 1i32});
-//     assert_eq!(idx2.get("name").await.unwrap().as_str().await.unwrap(), "field_2d_a_2d_field_2d_filter_1");
-//     assert_eq!(idx2.get("ns").await.unwrap().as_str().await.unwrap(), "witherTestDB.derived_2d_models");
-//     assert_eq!(idx2.get("min").await.unwrap().as_f64().await.unwrap(), -180.0f64);
-//     assert_eq!(idx2.get("max").await.unwrap().as_f64().await.unwrap(), 180.0f64);
-//     assert_eq!(idx2.get("bits").await.unwrap().as_i32().await.unwrap(), 1i32);
-// }
+//     assert_eq!(&idx1, &doc!{"v": idx1.get_i32("v").await.unwrap(), "key": doc!{"_id": 1}, "name":
+// "_id_", "ns": "witherTestDB.derived_2d_models"});     // NOTE WELL: doc comparison was failing
+// for some reason. Not sure why. Doing manual asserts now.     assert_eq!(idx2.get("key").await.
+// unwrap().as_document().await.unwrap(), &doc!{"field_2d_a": "2d", "field_2d_filter": 1i32});
+//     assert_eq!(idx2.get("name").await.unwrap().as_str().await.unwrap(),
+// "field_2d_a_2d_field_2d_filter_1");     assert_eq!(idx2.get("ns").await.unwrap().as_str().await.
+// unwrap(), "witherTestDB.derived_2d_models");     assert_eq!(idx2.get("min").await.unwrap().
+// as_f64().await.unwrap(), -180.0f64);     assert_eq!(idx2.get("max").await.unwrap().as_f64().
+// await.unwrap(), 180.0f64);     assert_eq!(idx2.get("bits").await.unwrap().as_i32().await.
+// unwrap(), 1i32); }
 
 // #[tokio::test]
 //
@@ -500,24 +502,25 @@ async fn model_delete_should_delete_model_instance() {
 //         .collect();
 //     let initial_indices_len = initial_indices.len();
 
-//     let _ = Derived2dsphereModel::sync(&db).await.expect("Expected a successful sync operation.");
-//     let mut output_indices: Vec<Document> = coll.list_indexes()
+//     let _ = Derived2dsphereModel::sync(&db).await.expect("Expected a successful sync
+// operation.");     let mut output_indices: Vec<Document> = coll.list_indexes()
 //         .await.expect("Expected to successfully open indices cursor post-test.")
 //         .filter_map(|doc_res| doc_res.ok())
 //         .collect();
-//     output_indices.sort_by_key(|doc| doc.get_str("name").await.unwrap().to_string()); // The name key will always exist and always be a string.
-//     let output_indices_len = output_indices.len();
+//     output_indices.sort_by_key(|doc| doc.get_str("name").await.unwrap().to_string()); // The name
+// key will always exist and always be a string.     let output_indices_len = output_indices.len();
 //     let idx1 = output_indices[0].clone();
 //     let idx2 = output_indices[1].clone();
 
 //     assert!(output_indices_len > initial_indices_len);
 //     assert_eq!(output_indices_len, 2);
-//     assert_eq!(&idx1, &doc!{"v": idx1.get_i32("v").await.unwrap(), "key": doc!{"_id": 1}, "name": "_id_", "ns": "witherTestDB.derived_2dsphere_models"});
-//     assert_eq!(idx2.get("key").await.unwrap().as_document().await.unwrap(), &doc!{"field_2dsphere": "2dsphere", "field_2dsphere_filter": 1i32});
-//     assert_eq!(idx2.get("name").await.unwrap().as_str().await.unwrap(), "field_2dsphere_2dsphere_field_2dsphere_filter_1");
-//     assert_eq!(idx2.get("ns").await.unwrap().as_str().await.unwrap(), "witherTestDB.derived_2dsphere_models");
-//     assert_eq!(idx2.get("2dsphereIndexVersion").await.unwrap().as_i32().await.unwrap(), 3i32);
-// }
+//     assert_eq!(&idx1, &doc!{"v": idx1.get_i32("v").await.unwrap(), "key": doc!{"_id": 1}, "name":
+// "_id_", "ns": "witherTestDB.derived_2dsphere_models"});     assert_eq!(idx2.get("key").await.
+// unwrap().as_document().await.unwrap(), &doc!{"field_2dsphere": "2dsphere",
+// "field_2dsphere_filter": 1i32});     assert_eq!(idx2.get("name").await.unwrap().as_str().await.
+// unwrap(), "field_2dsphere_2dsphere_field_2dsphere_filter_1");     assert_eq!(idx2.get("ns").
+// await.unwrap().as_str().await.unwrap(), "witherTestDB.derived_2dsphere_models");     assert_eq!
+// (idx2.get("2dsphereIndexVersion").await.unwrap().as_i32().await.unwrap(), 3i32); }
 
 // // TODO: enable this test once https://github.com/mongodb-labs/mongo-rust-driver-prototype/issues/289 lands.
 // // #[tokio::test]
@@ -533,20 +536,20 @@ async fn model_delete_should_delete_model_instance() {
 // //         .collect();
 // //     let initial_indices_len = initial_indices.len();
 
-// //     let _ = DerivedGeoHaystackModel::sync(&db).await.expect("Expected a successful sync operation.");
-// //     let mut output_indices: Vec<Document> = coll.list_indexes()
+// //     let _ = DerivedGeoHaystackModel::sync(&db).await.expect("Expected a successful sync
+// operation."); //     let mut output_indices: Vec<Document> = coll.list_indexes()
 // //         .await.expect("Expected to successfully open indices cursor post-test.")
 // //         .filter_map(|doc_res| doc_res.ok())
 // //         .collect();
-// //     output_indices.sort_by_key(|doc| doc.get_str("name").await.unwrap().to_string()); // The name key will always exist and always be a string.
-// //     let output_indices_len = output_indices.len();
-// //     let idx1 = output_indices[0].clone();
+// //     output_indices.sort_by_key(|doc| doc.get_str("name").await.unwrap().to_string()); // The
+// name key will always exist and always be a string. //     let output_indices_len =
+// output_indices.len(); //     let idx1 = output_indices[0].clone();
 // //     let idx2 = output_indices[1].clone();
 
 // //     assert!(output_indices_len > initial_indices_len);
 // //     assert_eq!(output_indices_len, 2);
-// //     assert_eq!(&idx1, &doc!{"v": idx1.get_i32("v").await.unwrap(), "key": doc!{"_id": 1}, "name": "_id_", "ns": "witherTestDB.derived_geo_haystack_models"});
-// //     assert_eq!(idx2, doc!{
+// //     assert_eq!(&idx1, &doc!{"v": idx1.get_i32("v").await.unwrap(), "key": doc!{"_id": 1},
+// "name": "_id_", "ns": "witherTestDB.derived_geo_haystack_models"}); //     assert_eq!(idx2, doc!{
 // //         "v": 2i32,
 // //         "key": doc!{"field_geo_haystack": "geoHaystack", "field_geo_haystack_filter": 1i32},
 // //         "name": "field_geo_haystack_geohaystack_field_geo_haystack_filter_1",
@@ -584,7 +587,8 @@ async fn model_delete_should_delete_model_instance() {
 //     let mut new_user = UserModelBadMigrations{id: None, email: String::from("test@test.com")};
 //     new_user.save(&db, None).await.expect("Expected to successfully save new user instance.");
 
-//     let err = UserModelBadMigrations::migrate(&db).expect_err("Expected a failure from migration operation.");
+//     let err = UserModelBadMigrations::migrate(&db).expect_err("Expected a failure from migration
+// operation.");
 
 //     assert_eq!(err.description(), "One of '$set' or '$unset' must be specified.");
 // }

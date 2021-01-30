@@ -23,7 +23,6 @@ use crate::error::{Result, WitherError};
 ///
 /// Any `read_concern`, `write_concern` or `selection_criteria` options configured for the model,
 /// either derived or manually, will be used for collection interactions.
-///
 #[cfg_attr(feature = "docinclude", doc(include = "../docs/model-derive.md"))]
 #[cfg_attr(feature = "docinclude", doc(include = "../docs/model-sync.md"))]
 #[cfg_attr(feature = "docinclude", doc(include = "../docs/logging.md"))]
@@ -214,10 +213,12 @@ where
     /// This method will consume `self`, and will return a new instance of `Self` based on the given
     /// return options (`ReturnDocument::Before | ReturnDocument:: After`).
     ///
-    /// In order to provide consistent behavior, this method will also ensure that the operation's write
-    /// concern `journaling` is set to `true`, so that we can receive a complete output document.
+    /// In order to provide consistent behavior, this method will also ensure that the operation's
+    /// write concern `journaling` is set to `true`, so that we can receive a complete output
+    /// document.
     ///
-    /// If this model instance was never written to the database, this operation will return an error.
+    /// If this model instance was never written to the database, this operation will return an
+    /// error.
     async fn update(self, db: &Database, filter: Option<Document>, update: Document, opts: Option<options::FindOneAndUpdateOptions>) -> Result<Self> {
         // Extract model's ID & use as filter for this operation.
         let id = self.id().ok_or_else(|| WitherError::ModelIdRequiredForOperation)?;
@@ -307,7 +308,8 @@ where
     /// defined in the response from `Self.indexes()`.
     #[deprecated(
         since = "0.9.0",
-        note = "Index management is currently missing in the underlying driver, so this method no longer does anything. We are hoping to re-enable this in a future release."
+        note = "Index management is currently missing in the underlying driver, so this method no longer does anything. We are hoping to re-enable \
+                this in a future release."
     )]
     async fn sync(_db: &Database) -> Result<()> {
         // NOTE: blocked by https://jira.mongodb.org/projects/RUST/issues/RUST-166
